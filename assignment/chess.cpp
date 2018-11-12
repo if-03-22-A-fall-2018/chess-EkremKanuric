@@ -15,11 +15,16 @@
    return pc.color == color && pc.type == type;
  }
  void 	init_chess_board (ChessBoard chess_board){
-
+   for (int i = 0; i < 8; i++)
+   {
+     for (int j = 0; j < 8; j++)
+     {
+       chess_board[i][j].is_occupied = false;
+     }
+   }
  }
- struct ChessSquare * 	get_square (ChessBoard chess_board, File file, Rank rank){
-   struct ChessSquare x;
-   return &x;
+ struct ChessSquare * get_square (ChessBoard chess_board, File file, Rank rank){
+   return 0;
  }
  bool 	is_square_occupied (ChessBoard chess_board, File file, Rank rank){
    return true;
