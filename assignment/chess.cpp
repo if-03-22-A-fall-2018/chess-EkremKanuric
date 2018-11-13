@@ -11,27 +11,45 @@
  * ----------------------------------------------------------
  */
  #include "chess.h"
- bool 	is_piece (struct ChessPiece pc, enum PieceColor color, enum PieceType type){
-   return pc.color == color && pc.type == type;
- }
- void 	init_chess_board (ChessBoard chess_board){
-   for (int i = 0; i < 8; i++)
-   {
-     for (int j = 0; j < 8; j++)
-     {
-       chess_board[i][j].is_occupied = false;
-     }
-   }
- }
- struct ChessSquare * get_square (ChessBoard chess_board, File file, Rank rank){
-   return 0;
- }
- bool 	is_square_occupied (ChessBoard chess_board, File file, Rank rank){
-   return true;
- }
- bool 	add_piece (ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece){
-   return true;
- }
+ bool is_square_ok(File file, Rank rank)
+  {
+    return file <= 'h' && file >= 'a' && rank <= 8 && rank >= 1;
+  }
+
+  bool 	is_piece (struct ChessPiece pc, enum PieceColor color, enum PieceType type)
+  {
+    return pc.color == color && pc.type == type;
+  }
+
+  void 	init_chess_board (ChessBoard chess_board)
+  {
+    for (int i = 0; i < 8; i++) {
+      for (int u = 0; u < 8; u++) {
+        chess_board[i][u].is_occupied = false;
+      }
+    }
+  }
+
+  struct ChessSquare * 	get_square (ChessBoard chess_board, File file, Rank rank)
+  {
+    if (is_square_ok(file, rank)) {
+      return &chess_board[rank - 1][file - 'a'];
+    }
+    else{
+      return 0;
+    }
+  }
+
+  bool 	is_square_occupied (ChessBoard chess_board, File file, Rank rank)
+  {
+    return is_square_ok(file, rank) && chess_board[rank - 1][file - 'a'].is_occupied;
+  }
+
+  bool 	add_piece (ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
+  {
+    return true;
+  }
+
  struct ChessPiece 	get_piece (ChessBoard chess_board, File file, Rank rank){
    struct ChessPiece x;
    return x;
