@@ -1,17 +1,4 @@
-/*----------------------------------------------------------
- *				HTBLA-Leonding / Klasse: 2AHIF
- * ---------------------------------------------------------
- * Exercise Number: 0
- * Title:			      chess.c
- * Author:			    Dionis Raci
- * Due Date:		    October 13, 2017
- * ----------------------------------------------------------
- * Description:
- * Implementation of basic chess functions.
- * ----------------------------------------------------------
- */
-
- #include "chess.h"
+#include "chess.h"
 
 bool is_piece(struct ChessPiece cp, enum PieceColor color, enum PieceType type)
 {
